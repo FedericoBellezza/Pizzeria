@@ -8,9 +8,24 @@
   </head>
   <body>
     <div th:replace="~{ fragments/fragments :: navbar }"></div>
-    <h1 class="text-5xl text-slate-700 font-bold italic text-center py-10">
+    <h1 class="text-5xl text-slate-700 font-bold italic text-center pt-10 pb-5">
       Le nostre PIZZE
     </h1>
+    <form class="text-center my-5" method="get" action="/pizzas/search-by-name">
+      <input
+        class="border px-2 py-1"
+        placeholder="Filtra per nome"
+        type="text"
+        id="name"
+        name="name"
+      />
+      <button
+        class="bg-red-500 px-2 py-1 my-5 text-white cursor-pointer"
+        type="submit"
+      >
+        Filtra
+      </button>
+    </form>
     <table class="w-70/100 mx-auto text-center table-fixed">
       <thead class="border text-2xl italic h-20 underline">
         <th>Nome</th>
