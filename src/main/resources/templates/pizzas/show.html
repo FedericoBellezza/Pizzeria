@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIZZAS</title>
+    <div th:replace="~{ fragments/fragments :: tailwind}"></div>
+  </head>
+  <body>
+    <div th:replace="~{ fragments/fragments :: navbar }"></div>
+    <div class="flex flex-col items-center gap-10">
+      <h1
+        th:if="${pizza != null}"
+        class="text-6xl text-slate-700 font-bold italic text-center pt-10"
+      >
+        Pizza [[${pizza.name}]]
+        <span class="text-2xl">€[[${pizza.price}]].00</span>
+      </h1>
+      <h1
+        th:unless="${pizza != null}"
+        class="text-6xl text-slate-700 font-bold italic text-center py-10"
+      >
+        Pizza non trovata
+      </h1>
+      <p class="text-center text-xl">[[${pizza.description}]]</p>
+      <img
+        class="rounded-2xl w-50/100 h-150 object-cover"
+        th:src="@{${pizza.image}}"
+        alt="immagine pizza"
+      />
+    </div>
+  </body>
+</html>
