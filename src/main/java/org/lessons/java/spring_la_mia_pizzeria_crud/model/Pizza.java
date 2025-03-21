@@ -8,6 +8,7 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pizzas")
@@ -17,17 +18,19 @@ public class Pizza {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @NotBlank(message = "The name cannot be empty")
+  @NotBlank(message = "Inserisci un nome valido")
   private String name;
 
   @Lob
+  @NotBlank(message = "Inserisci una descrizione valida")
   private String description;
 
   @Lob
+  @NotBlank(message = "Inserisci una immagine valida")
   private String image;
 
-  @NotBlank
-  @Min(value = 0, message = "The price must be positive")
+  @Min(value = 0, message = "Inserisci un numero valido")
+  @NotNull(message = "Inserisci un numero valido")
   private Integer price;
 
   // constructor
