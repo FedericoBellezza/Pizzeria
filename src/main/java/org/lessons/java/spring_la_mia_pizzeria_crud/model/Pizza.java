@@ -29,8 +29,8 @@ public class Pizza {
   @NotBlank(message = "Inserisci una immagine valida")
   private String image;
 
-  @Min(value = 0, message = "Inserisci un numero valido")
-  @NotNull(message = "Inserisci un numero valido")
+  @Min(value = 0, message = "Il prezzo deve essere positivo")
+  @NotNull(message = "Inserisci un prezzo valido")
   private Integer price;
 
   // constructor
@@ -43,7 +43,6 @@ public class Pizza {
   }
 
   public Pizza() {
-
   }
 
   public Integer getId() {

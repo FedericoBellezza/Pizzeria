@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/pizzas")
@@ -86,7 +84,6 @@ public class PizzaController {
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         repository.deleteById(id);
-
         return "redirect:/pizzas";
     }
 
