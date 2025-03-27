@@ -1,5 +1,7 @@
 package org.lessons.java.spring_la_mia_pizzeria_crud.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +20,12 @@ public class Pizza {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
+  @Length(min = 3, message = "Il nome deve avere almeno 3 caratteri e massimo 50", max = 50)
   @NotBlank(message = "Inserisci un nome valido")
   private String name;
 
   @Lob
+  @Length(min = 5, message = "Il nome deve avere almeno 5 caratteri e massimo 100", max = 100)
   @NotBlank(message = "Inserisci una descrizione valida")
   private String description;
 
@@ -32,15 +36,6 @@ public class Pizza {
   @Min(value = 0, message = "Il prezzo deve essere positivo")
   @NotNull(message = "Inserisci un prezzo valido")
   private Integer price;
-
-  // constructor
-  public Pizza(Integer id, String name, String description, String image, Integer price) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.image = image;
-    this.price = price;
-  }
 
   public Pizza() {
   }
